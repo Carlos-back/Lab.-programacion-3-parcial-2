@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Parcial2_LP3_AlanisCarlos.Site" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Asesoría Legal Global</title>
+    <link href="~/Estilos/estilos.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <!-- Barra de navegación (se repite en todas las páginas) -->
+        <header class="navbar">
+            <asp:HyperLink ID="lnkMarca" runat="server" CssClass="marca"
+                NavigateUrl="~/Default.aspx" ImageUrl="~/Imagenes/logo2.png"
+                Text="Asesoría Legal Global - Inicio" />
+
+            <nav class="menu-principal">
+                <asp:HyperLink ID="lnkInicio" runat="server" NavigateUrl="~/Default.aspx" Text="Inicio" />
+                <asp:HyperLink ID="lnkRegistro" runat="server" NavigateUrl="~/Registro.aspx" Text="Registro" />
+                <asp:HyperLink ID="lnkLogin" runat="server" NavigateUrl="~/Login.aspx" Text="Iniciar sesión" />
+                <asp:HyperLink ID="lnkDocumentos" runat="server" NavigateUrl="~/Documentos.aspx" Text="Mis documentos" />
+                <asp:Label ID="lblSaludo" runat="server" CssClass="saludo" Visible="False" />
+                <asp:LinkButton ID="lnkSalir" runat="server" CssClass="salir" Visible="False"
+                    CausesValidation="False" OnClick="lnkSalir_Click" Text="Cerrar sesión" />
+            </nav>
+        </header>
+
+        <!-- Contenido propio de cada página -->
+        <main class="contenido">
+            <asp:ContentPlaceHolder ID="Contenido" runat="server">
+            </asp:ContentPlaceHolder>
+        </main>
+
+        <!-- Pie de página (se repite en todas las páginas) -->
+        <footer class="pie">
+            <p>&copy; <%= DateTime.Now.Year %> Asesoría Legal Global. Todos los derechos reservados.</p>
+        </footer>
+
+    </form>
+</body>
+</html>
